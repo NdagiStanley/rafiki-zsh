@@ -2,35 +2,25 @@ declare -A good
 declare -A bad
 
 good[muscle]=💪
-good[pointright]=👉
 good[facepunch]=👊
 good[smile]=😄
 good[sunglasses]=😎
 good[thumbsup]=👍
 good[okhand]=👌
 good[winking]=😉
-good[vforvictory]=✌️
 good[clap]=👏
-good[moon]=🌝
-good[sun]=🌞
 good[geek]=🤓
-good[beer]=🍺
-good[cheers]=🍻
 good[handsup]=🙌
-good[skull]=💀
 
 
 bad[rollingeyes]=🙄
 bad[pouting]=😡
 bad[confused]=😕
-bad[flushed]=😳
-bad[middlefinger]=🖕
 bad[worried]=😟
 bad[nervous]=😰
 bad[scream]=😱
 bad[thumbsdown]=👎
 bad[hushed]=😯
-bad[triumph]=😤
 bad[grimacing]=😬
 bad[expressionless]=😑
 bad[frowning]=☹️
@@ -81,7 +71,7 @@ else
   RAFIKI_BAD="$bad[$B]"
 fi
 
-local message="$fg_bold[green]$RAFIKI_GOOD  I'm your friend today. $fg_bold[red]$RAFIKI_BAD  I'm not your friend."
+local message="$fg_bold[green]$RAFIKI_GOOD  Rafiki, shikilia uzito!  $fg_bold[red]$RAFIKI_BAD  Kaa rada!"
 
 if [[ -z "$RAFIKI_QUIET" ]]; then
   echo "${message}"
@@ -90,8 +80,11 @@ fi
 alias rafiki='echo "${message}"'
 alias newrafiki='source ~/.zshrc'
 
+NEWLINE='
+👉 '
+
 local ret_status="%(?:%{$fg_bold[green]%}$RAFIKI_GOOD :%{$fg_bold[red]%}$RAFIKI_BAD )"
-PROMPT='${ret_status} %{$fg[cyan]%}%c%{$reset_color%} $(git_prompt_info)'
+PROMPT='${ret_status} %{$fg[cyan]%}% $USER@%m%{$reset_color%} %~ $(git_prompt_info) $NEWLINE '
 
 ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg_bold[blue]%}git:(%{$fg[red]%}"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%} "
